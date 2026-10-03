@@ -32,16 +32,18 @@ namespace StudentRosterApi.Controllers
             return Ok(student);
         }
 
-        // GET: api/Students/course/BSCS
-        [HttpGet("course/{courseName}")]
-        public IActionResult GetStudentsByCourse(string courseName)
-        {
-            var filtered = students
-                .Where(s => s.Course.Equals(courseName, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+    
 
-            return Ok(filtered);
-        }
+// GET: api/students/course/BSCS
+[HttpGet("course/{courseName}")]
+public IActionResult GetStudentsByCourse(string courseName)
+{
+    var filtered = students
+        .Where(s => s.Course.Equals(courseName, StringComparison.OrdinalIgnoreCase))
+        .ToList();
+
+    return Ok(filtered);
+}
 
         // POST: api/Students
         [HttpPost]
